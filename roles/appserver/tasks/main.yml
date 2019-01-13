@@ -1,0 +1,22 @@
+---
+  - name: creation of user
+    user: name=user5 state=present
+
+  - name: install ntp
+    yum: name=ntp state=latest
+
+  - name: check service
+    service: name=ntpd state=started
+    notify:
+    - restart_ntpd
+
+  - name: install webserver
+    yum: name=httpd state=latest
+
+  - name: check service
+    service: name=httpd state=started
+
+  - name: deploy home page
+    template: src=index.j2 dest={{doc_root }}/index.html
+    notify:
+    - restart_webserver

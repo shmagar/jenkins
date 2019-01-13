@@ -1,0 +1,14 @@
+- hosts: dbservers
+  become: true
+  remote_user: shraddha_magar5
+  gather_facts: false
+  roles:
+  - appserver
+
+- hosts: webservers
+  become: true
+  remote_user: shraddha_magar5
+  gather_facts: false
+  roles:
+  - appserver
+
