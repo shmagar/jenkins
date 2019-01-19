@@ -1,14 +1,8 @@
-- hosts: dbservers
+- hosts: 35.231.45.239
   become: true
   remote_user: shraddha_magar5
   gather_facts: false
   roles:
   - appserver
 
-- hosts: webservers
-  become: true
-  remote_user: shraddha_magar5
-  gather_facts: false
-  roles:
-  - appserver
 
